@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Text Expander",
+  "version": "1.0",
+  "description": "Replaces shortcuts with snippets in text fields on any website.",
+  "permissions": ["storage","sidePanel","tabs","contextMenus"],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel-global.html"
+  },
+  "action" : {
+    "default_title": "Click to open panel"
+  }
+}
